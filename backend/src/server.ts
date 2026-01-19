@@ -3,6 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import hooksRouter from "./routes/hooks.routes";
 import engagementRoutes from "./routes/engagement.routes";
+import searchRoutes from "./routes/search.routes";
+import statsRoutes from "./routes/stats.routes";
+import { engagementLimiter } from "./middleware/rateLimit.middleware";
+
 dotenv.config();
 
 const app = express();
@@ -13,7 +17,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-
+app.use("/api/hooks", engagementLimiter);
+app.use("/api/hooks", statsRoutes);
+app.use("/api/search", searchRoutes);
 app.use("/api/hooks", hooksRouter);
 app.use("/api/hooks", engagementRoutes);
 app.get("/health", (req, res) => {
