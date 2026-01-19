@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { searchHooks } from "../db/search.table.js";
+import { searchHooks } from "../db/search.table";
 
 export const search = async (req: Request, res: Response) => {
   const q = req.query.q as string;

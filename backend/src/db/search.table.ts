@@ -1,5 +1,5 @@
-import { supabase } from "../config/supabase.js";
-import { Hook } from "../types/hook.js";
+import { supabase } from "../config/supabase";
+import { Hook } from "../types/hook";
 
 export const searchHooks = async (query: string, limit = 10) => {
   return supabase
