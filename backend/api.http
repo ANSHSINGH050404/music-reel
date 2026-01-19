@@ -1,0 +1,10 @@
+@baseUrl = http://localhost:3000
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Get Hook Feed
+GET {{baseUrl}}/api/hooks/feed
+
+### Get Hook Feed (with category)
+GET {{baseUrl}}/api/hooks/feed?category=pop
